@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Perry — Project Management | Construction &amp; Fit Out</title>
+<meta name="description" content="James Perry — Project Manager delivering construction &amp; fit out projects end to end across the UK and Ireland.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Brand tokens ===== */
+:root{
+  --green:#1B3A2F; --green-2:#112620; --bronze:#C19A6B; --bronze-d:#9A7B4F;
+  --cream:#F5F0E6; --cream-2:#EFE8D8; --paper:#FFFFFF;
+  --ink:#23251F; --muted:#5C5E54; --line:rgba(27,58,47,.14);
+  --head:'Avenir Next','Avenir','Montserrat',sans-serif;
+  --body:'Montserrat',sans-serif;
+  --maxw:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--head);color:var(--green);font-weight:700;line-height:1.1;letter-spacing:-.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+section{padding:96px 0;position:relative;overflow:hidden}
+
+/* ===== Hexagon backgrounds ===== */
+.hexbg{position:absolute;z-index:0;pointer-events:none}
+
+/* ===== Shared bits ===== */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze-d);margin-bottom:18px}
+.eyebrow svg{width:15px;height:16px;flex:none}
+.section-head{max-width:680px;margin-bottom:48px}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.8rem)}
+.section-head p{color:var(--muted);margin-top:14px;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--head);font-weight:600;font-size:.92rem;padding:13px 24px;border-radius:6px;transition:.2s;cursor:pointer;border:1.5px solid transparent}
+.btn-primary{background:var(--bronze);color:var(--green-2)}
+.btn-primary:hover{background:var(--bronze-d);color:#fff}
+.btn-ghost{border-color:var(--green);color:var(--green)}
+.btn-ghost:hover{background:var(--green);color:var(--cream)}
+.btn svg{width:17px;height:17px}
+
+/* ===== Header ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(245,240,230,.85);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.25s}
+header.scrolled{border-bottom-color:var(--line);box-shadow:0 2px 20px rgba(17,38,32,.05)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:42px;width:auto}
+.brand-txt{display:flex;flex-direction:column;line-height:1.05}
+.brand-txt b{font-family:var(--head);font-weight:700;color:var(--green);font-size:1.02rem;letter-spacing:.01em}
+.brand-txt span{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze-d);font-weight:600}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-weight:500;font-size:.92rem;color:var(--ink);transition:.2s}
+.nav-links a:hover{color:var(--bronze-d)}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.burger{display:none;background:none;border:0;cursor:pointer;color:var(--green);padding:6px}
+.burger svg{width:28px;height:28px}
+
+/* ===== Hero ===== */
+.hero{padding:72px 0 88px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.2rem);margin:8px 0 4px}
+.hero .role{font-family:var(--head);font-weight:600;color:var(--bronze-d);font-size:clamp(1rem,2vw,1.25rem);margin-bottom:22px}
+.hero .lead{font-size:1.12rem;color:var(--ink);max-width:30em;margin-bottom:32px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-media{position:relative}
+.hero-media img{border-radius:12px;width:100%;height:520px;object-fit:cover;box-shadow:0 26px 60px -24px rgba(17,38,32,.45)}
+.hero-media .tag{position:absolute;left:18px;bottom:18px;background:rgba(17,38,32,.82);color:var(--cream);font-size:.74rem;font-weight:600;letter-spacing:.05em;padding:8px 14px;border-radius:6px;backdrop-filter:blur(4px)}
+
+/* ===== Stats ===== */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream-2);position:relative;overflow:hidden}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:46px;padding-bottom:46px}
+.stat .num{font-family:var(--head);font-weight:700;color:var(--green);font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1}
+.stat .num em{font-style:normal;color:var(--bronze)}
+.stat .lab{margin-top:8px;color:var(--muted);font-size:.86rem;line-height:1.4}
+
+/* ===== About ===== */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px}
+.about p{margin-bottom:18px;font-size:1.06rem}
+.prog{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.prog span{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:7px 16px;font-size:.84rem;font-weight:500}
+.prog span b{color:var(--green);font-weight:600}
+.certs{background:var(--green);color:var(--cream);border-radius:12px;padding:30px 30px}
+.certs h3{color:var(--cream);font-size:1.05rem;margin-bottom:18px;letter-spacing:.02em}
+.certs ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.certs li{display:flex;align-items:center;gap:12px;font-size:.95rem}
+.certs li svg{width:18px;height:18px;color:var(--bronze);flex:none}
+
+/* ===== Case studies ===== */
+#work{background:var(--cream-2)}
+.case{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:48px}
+.case-info{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding:36px 40px;align-items:start}
+.case-loc{display:inline-block;font-family:var(--head);font-weight:700;color:var(--bronze-d);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.case-text h3{font-size:1.7rem;margin-bottom:14px}
+.case-text p{color:var(--muted)}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 26px}
+.metric .v{font-family:var(--head);font-weight:700;color:var(--green);font-size:1.55rem;line-height:1}
+.metric .k{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;margin-top:5px}
+
+/* ===== Carousel ===== */
+.carousel{position:relative;background:var(--green-2);overflow:hidden}
+.track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);touch-action:pan-y}
+.track img{min-width:100%;width:100%;height:clamp(340px,46vw,580px);object-fit:cover;display:block;user-select:none}
+.cbtn{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:rgba(245,240,230,.9);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--green);z-index:3;transition:.2s}
+.cbtn:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+.cbtn.prev{left:18px}.cbtn.next{right:18px}
+.cbtn svg{width:24px;height:24px}
+.ccap{position:absolute;top:18px;left:18px;background:rgba(17,38,32,.82);color:var(--cream);font-size:.8rem;font-weight:600;letter-spacing:.04em;padding:9px 15px;border-radius:6px;z-index:3;backdrop-filter:blur(4px)}
+.ccount{position:absolute;top:18px;right:18px;background:rgba(17,38,32,.82);color:var(--cream);font-size:.78rem;font-weight:600;padding:9px 13px;border-radius:6px;z-index:3;backdrop-filter:blur(4px)}
+.dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:7px;z-index:3}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(245,240,230,.45);border:0;cursor:pointer;padding:0;transition:.2s}
+.dot.active{background:var(--bronze);width:24px;border-radius:5px}
+
+/* ===== Skills ===== */
+#skills{background:var(--green)}
+#skills .section-head h2{color:var(--cream)}
+#skills .eyebrow{color:var(--bronze)}
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.skill{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:26px 26px;transition:.2s}
+.skill:hover{border-color:var(--bronze);transform:translateY(-3px)}
+.skill .ic{width:40px;height:40px;border-radius:9px;background:var(--cream);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.skill .ic svg{width:21px;height:21px;color:var(--green)}
+.skill h3{font-size:1.12rem;margin-bottom:7px}
+.skill p{color:var(--muted);font-size:.94rem}
+
+/* ===== Tools ===== */
+#tools{background:var(--cream-2)}
+.tools-list{display:flex;flex-wrap:wrap;gap:12px}
+.tool{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:13px 20px;font-weight:500;font-size:.95rem}
+.tool .dot{width:9px;height:9px;border-radius:50%;background:var(--bronze)}
+
+/* ===== Contact ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.contact h2{font-size:clamp(2rem,4vw,2.9rem)}
+.contact-lead{color:var(--muted);font-size:1.08rem;margin:16px 0 30px}
+.contact-card{background:var(--green);color:var(--cream);border-radius:16px;padding:38px 38px}
+.contact-card a.row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(245,240,230,.16);transition:.2s}
+.contact-card a.row:last-child{border-bottom:0}
+.contact-card a.row:hover{color:var(--bronze)}
+.contact-card .ci{width:42px;height:42px;border-radius:9px;background:rgba(193,154,107,.18);display:flex;align-items:center;justify-content:center;flex:none}
+.contact-card .ci svg{width:20px;height:20px;color:var(--bronze)}
+.contact-card .ct small{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.contact-card .ct span{font-weight:500}
+
+/* ===== Footer ===== */
+footer{background:var(--green-2);color:var(--cream);position:relative;overflow:hidden}
+.foot-inner{display:flex;flex-direction:column;align-items:center;gap:16px;padding:54px 24px}
+.foot-brand{display:flex;align-items:center;gap:13px}
+.foot-brand img{height:48px}
+.foot-brand b{font-family:var(--head);font-weight:700;font-size:1.12rem}
+.foot-brand span{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);font-weight:600}
+.foot-copy{font-size:.82rem;opacity:.6;text-align:center}
+
+/* ===== Reveal animation ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  section{padding:72px 0}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:8px 24px 18px}
+  .nav-links.open a{padding:13px 0;border-bottom:1px solid var(--line)}
+  .hero-grid,.about-grid,.case-info,.contact-grid{grid-template-columns:1fr}
+  .hero-media img{height:340px}
+  .stats .wrap{grid-template-columns:repeat(2,1fr);gap:30px}
+  .skill-grid{grid-template-columns:1fr}
+  .hero-actions .btn{flex:1;justify-content:center}
+  .case-info{padding:30px 26px;gap:28px}
+}
+@media(max-width:520px){.metrics{grid-template-columns:1fr 1fr}.cbtn{width:42px;height:42px}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <img src="assets/img/logo-mark.png" alt="James Perry Project Management logo">
+      <span class="brand-txt"><b>James Perry</b><span>Project Management</span></span>
+    </a>
+    <nav class="nav-links" id="menu">
+      <a href="#about">About</a>
+      <a href="#work">Case Studies</a>
+      <a href="#skills">Skills</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="assets/cv/James_Perry_CV.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        CV
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <svg class="hexbg" style="width:340px;top:-80px;right:-90px;color:var(--green);opacity:.06" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:190px;bottom:30px;left:-70px;color:var(--bronze);opacity:.07" viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:120px;top:120px;left:46%;color:var(--green);opacity:.05" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow">
+        <svg viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+        Construction &amp; Fit Out
+      </span>
+      <h1>James Perry</h1>
+      <div class="role">Project Manager</div>
+      <p class="lead">I deliver construction &amp; fit out projects end to end across the UK and Ireland — concept through procurement, construction and handover.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work">View case studies</a>
+        <a class="btn btn-ghost" href="assets/cv/James-Perry-CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+    <div class="hero-media reveal in">
+      <img src="assets/img/cardiff-2.jpg" alt="Heritage city-centre retail flagship delivered by James Perry">
+      <span class="tag">Cardiff city-centre flagship</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="stats">
+  <svg class="hexbg" style="width:160px;top:-40px;left:8%;color:var(--green);opacity:.05" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:140px;bottom:-50px;right:14%;color:var(--bronze);opacity:.06" viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <div class="wrap">
+    <!-- PLACEHOLDER FIGURES — amend as needed -->
+    <div class="stat reveal"><div class="num"><em>£</em>100m</div><div class="lab">Estimated value of projects managed</div></div>
+    <div class="stat reveal"><div class="num">12<em>+</em></div><div class="lab">Store fit-outs delivered since 2022</div></div>
+    <div class="stat reveal"><div class="num">235k</div><div class="lab">Sq ft — largest building managed</div></div>
+    <div class="stat reveal"><div class="num">4<em>+</em></div><div class="lab">Years end-to-end delivery experience</div></div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="about">
+  <svg class="hexbg" style="width:300px;top:-70px;right:-80px;color:var(--green);opacity:.045" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:150px;bottom:40px;left:-60px;color:var(--bronze);opacity:.06" viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><svg viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>About</span>
+      <h2>Programme certainty, every time.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I'm a Project Manager specialising in construction &amp; fit out. Over four years at EB Designs I've progressed from Project Administrator to Project Manager, building Sports Direct, USC, Flannels, GAME and Everlast stores from design through to opening day.</p>
+        <p>I own the programme, the budget and the contractor teams — typically five or more trades per site — and I'm the client's single point of contact from kick-off to handover. My focus is simple: keep the programme certain, hold the quality bar high, and open every store right first time.</p>
+      </div>
+      <div class="certs reveal">
+        <h3>Certifications</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>CSCS Card</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Asbestos Awareness</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>First Aid qualified</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mental Health Awareness trained</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full UK driving licence</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES ============ -->
+<section id="work">
+  <svg class="hexbg" style="width:260px;top:60px;left:-90px;color:var(--green);opacity:.05" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:180px;top:38%;right:-70px;color:var(--bronze);opacity:.06" viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:150px;bottom:80px;left:30%;color:var(--green);opacity:.04" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><svg viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>Case Studies</span>
+      <h2>Selected projects</h2>
+      <p>Swipe each carousel from the <strong>finished store</strong> back through to the build. <!-- Figures and descriptions are illustrative placeholders — amend as needed. --></p>
+    </div>
+
+    <!-- DUBLIN -->
+    <article class="case reveal">
+      <div class="carousel">
+        <div class="track">
+          <img src="assets/img/dublin-1.jpg" alt="Dublin storefront at dusk" data-cap="Completed &#183; storefront (dusk)" style="object-position:50% 100%">
+          <img src="assets/img/dublin-2.jpg" alt="Dublin Nike concept floor" data-cap="Completed &#183; Nike concept">
+          <img src="assets/img/dublin-3.jpg" alt="Dublin central atrium and escalators" data-cap="Completed &#183; central atrium">
+          <img src="assets/img/dublin-4.jpg" alt="Dublin football department" data-cap="Completed &#183; football">
+          <img src="assets/img/dublin-during-1.jpg" alt="Dublin during construction" data-cap="During construction">
+          <img src="assets/img/dublin-during-2.jpg" alt="Dublin during construction" data-cap="During construction">
+          <img src="assets/img/dublin-during-3.jpg" alt="Dublin during construction" data-cap="During construction">
+          <img src="assets/img/dublin-during-4.jpg" alt="Dublin during construction" data-cap="During construction">
+          <img src="assets/img/dublin-during-5.jpg" alt="Dublin during construction" data-cap="During construction">
+        </div>
+        <button class="cbtn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="cbtn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <span class="ccap"></span><span class="ccount"></span>
+        <div class="dots" aria-label="Choose image"></div>
+      </div>
+      <div class="case-info">
+        <div class="case-text">
+          <span class="case-loc">Dublin</span>
+          <h3>Sports Direct &amp; Everlast Gym flagship</h3>
+          <p>A full strip out of a former Debenhams and Roches Stores building, transforming it into Ireland&rsquo;s first Sports Direct flagship and inaugural Everlast Gym.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="v">235,000</div><div class="k">Sq ft</div></div>
+          <div class="metric"><div class="v">98 wks</div><div class="k">Programme</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARDIFF -->
+    <article class="case reveal">
+      <div class="carousel">
+        <div class="track">
+          <img src="assets/img/cardiff-2.jpg" alt="Cardiff heritage façade" data-cap="Completed · heritage façade">
+          <img src="assets/img/cardiff-3.jpg" alt="Cardiff sales floor" data-cap="Completed · sales floor">
+          <img src="assets/img/cardiff-4.jpg" alt="Cardiff kids department" data-cap="Completed · kids department">
+          <img src="assets/img/cardiff-5.jpg" alt="Cardiff outdoor department" data-cap="Completed · outdoor department">
+          <img src="assets/img/cardiff-during-1.jpg" alt="Cardiff during construction" data-cap="During construction">
+          <img src="assets/img/cardiff-during-2.jpg" alt="Cardiff during construction" data-cap="During construction">
+          <img src="assets/img/cardiff-during-3.jpg" alt="Cardiff during construction" data-cap="During construction">
+        </div>
+        <button class="cbtn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="cbtn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <span class="ccap"></span><span class="ccount"></span>
+        <div class="dots" aria-label="Choose image"></div>
+      </div>
+      <div class="case-info">
+        <div class="case-text">
+          <span class="case-loc">Cardiff</span>
+          <h3>Sports Direct flagship</h3>
+          <p>A full refit of a listed city-centre building into a multi-floor Sports Direct, USC and GAME destination.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="v">85,000</div><div class="k">Sq ft</div></div>
+          <div class="metric"><div class="v">24 wks</div><div class="k">Programme</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- STRATFORD -->
+    <article class="case reveal">
+      <div class="carousel">
+        <div class="track">
+          <img src="assets/img/stratford-1.jpg" alt="Stratford completed storefront" data-cap="Completed · storefront">
+          <img src="assets/img/stratford-4.jpg" alt="Stratford Flannels exterior" data-cap="Completed · Flannels exterior">
+          <img src="assets/img/stratford-2.jpg" alt="Stratford run department" data-cap="Completed · run department">
+          <img src="assets/img/stratford-3.jpg" alt="Stratford Flannels interior" data-cap="Completed · Flannels interior">
+          <img src="assets/img/stratford-during-1.jpg" alt="Stratford during construction" data-cap="During construction">
+          <img src="assets/img/stratford-during-2.jpg" alt="Stratford during construction" data-cap="During construction">
+          <img src="assets/img/stratford-during-3.jpg" alt="Stratford during construction" data-cap="During construction">
+        </div>
+        <button class="cbtn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="cbtn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <span class="ccap"></span><span class="ccount"></span>
+        <div class="dots" aria-label="Choose image"></div>
+      </div>
+      <div class="case-info">
+        <div class="case-text">
+          <span class="case-loc">Stratford</span>
+          <h3>Sports Direct &amp; Flannels flagship</h3>
+          <p>A premium dual-brand delivery pairing a high-energy Sports Direct flagship with a refined Flannels designer hall — two contrasting fit-out standards under one programme.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="v">30,000</div><div class="k">Sq ft</div></div>
+          <div class="metric"><div class="v">21 wks</div><div class="k">Programme</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- BELFAST -->
+    <article class="case reveal">
+      <div class="carousel">
+        <div class="track">
+          <img src="assets/img/belfast-1.jpg" alt="Belfast storefront at dusk" data-cap="Completed · storefront (dusk)">
+          <img src="assets/img/belfast-2.jpg" alt="Belfast storefront at night" data-cap="Completed · storefront (night)">
+          <img src="assets/img/belfast-3.jpg" alt="Belfast menswear floor" data-cap="Completed · menswear">
+          <img src="assets/img/belfast-4.jpg" alt="Belfast footwear floor" data-cap="Completed · footwear">
+          <img src="assets/img/belfast-5.jpg" alt="Belfast GAME department" data-cap="Completed · GAME">
+          <img src="assets/img/belfast-during-1.jpg" alt="Belfast during construction" data-cap="During construction">
+          <img src="assets/img/belfast-during-2.jpg" alt="Belfast during construction" data-cap="During construction">
+          <img src="assets/img/belfast-during-3.jpg" alt="Belfast during construction" data-cap="During construction">
+        </div>
+        <button class="cbtn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="cbtn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <span class="ccap"></span><span class="ccount"></span>
+        <div class="dots" aria-label="Choose image"></div>
+      </div>
+      <div class="case-info">
+        <div class="case-text">
+          <span class="case-loc">Belfast</span>
+          <h3>Sports Direct new concept store</h3>
+          <p>A new retail park offering of Sports Direct, USC and GAME under one roof, with a full-height illuminated frontage and feature lighting across the shop floor.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="v">42,000</div><div class="k">Sq ft</div></div>
+          <div class="metric"><div class="v">16 wks</div><div class="k">Programme</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- LUTON -->
+    <article class="case reveal">
+      <div class="carousel">
+        <div class="track">
+          <img src="assets/img/luton-1.jpg" alt="Luton mall entrance" data-cap="Completed · mall entrance">
+          <img src="assets/img/luton-2.jpg" alt="Luton kids footwear" data-cap="Completed · kids footwear">
+          <img src="assets/img/luton-3.jpg" alt="Luton kids clothing" data-cap="Completed · kids clothing">
+          <img src="assets/img/luton-4.jpg" alt="Luton football boot wall" data-cap="Completed · football">
+          <img src="assets/img/luton-during-1.jpg" alt="Luton during construction" data-cap="During construction">
+          <img src="assets/img/luton-during-2.jpg" alt="Luton during construction" data-cap="During construction">
+          <img src="assets/img/luton-during-3.jpg" alt="Luton during construction" data-cap="During construction">
+        </div>
+        <button class="cbtn prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="cbtn next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <span class="ccap"></span><span class="ccount"></span>
+        <div class="dots" aria-label="Choose image"></div>
+      </div>
+      <div class="case-info">
+        <div class="case-text">
+          <span class="case-loc">Luton</span>
+          <h3>Sports Direct &amp; Frasers Outlet</h3>
+          <p>A multi-floor shopping centre unit, delivered live alongside trading neighbours with strict noise, access and out-of-hours working constraints.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="v">145,000</div><div class="k">Sq ft</div></div>
+          <div class="metric"><div class="v">56 wks</div><div class="k">Programme</div></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <svg class="hexbg" style="width:260px;top:-60px;right:-80px;color:var(--bronze);opacity:.08" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:150px;bottom:60px;left:-60px;color:var(--cream);opacity:.05" viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><svg viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>Skills</span>
+      <h2>What I bring to a programme</h2>
+    </div>
+    <div class="skill-grid">
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></div><h3>Project &amp; programme management</h3><p>Owned delivery of 12+ stores from concept to handover, holding programme certainty throughout.</p></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></div><h3>Budget &amp; cost control</h3><p>Control multi-million budgets and cashflow against agreed targets across each project.</p></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Multi-trade coordination</h3><p>Coordinate 5+ contractor trades per site alongside suppliers, designers and consultants.</p></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div><h3>Procurement &amp; supplier management</h3><p>Run procurement and supplier packages to keep the programme moving and costs in check.</p></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h3>Risk management &amp; problem solving</h3><p>Plan ahead, identify risk early and solve problems on site before they hit the programme.</p></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Client &amp; stakeholder management</h3><p>Act as primary contact for all clients, building trust and aligning delivery to business goals.</p></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6z"/></svg></div><h3>Health &amp; safety / quality control</h3><p>Uphold H&amp;S and quality on every site — managing inspections and snagging through to completion.</p></div>
+      <div class="skill reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>Multi-site delivery &amp; logistics</h3><p>Deliver across the UK and Ireland, managing logistics and access for live and new-build sites.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS ============ -->
+<section id="tools">
+  <svg class="hexbg" style="width:230px;top:-50px;left:-80px;color:var(--green);opacity:.05" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:140px;bottom:-40px;right:10%;color:var(--bronze);opacity:.06" viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><svg viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>Tools</span>
+      <h2>Software &amp; systems</h2>
+      <p><!-- PLACEHOLDER: Microsoft Project confirmed on CV — others added as examples, amend to match. -->Day-to-day toolkit for planning, reporting and coordination.</p>
+    </div>
+    <div class="tools-list reveal">
+      <div class="tool"><span class="dot"></span>Microsoft Project</div>
+      <div class="tool"><span class="dot"></span>Asta Powerproject</div>
+      <div class="tool"><span class="dot"></span>Microsoft Excel</div>
+      <div class="tool"><span class="dot"></span>Microsoft Office 365</div>
+      <div class="tool"><span class="dot"></span>Airtable</div>
+      <div class="tool"><span class="dot"></span>Microsoft Teams</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <svg class="hexbg" style="width:300px;top:-70px;right:-90px;color:var(--green);opacity:.05" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:160px;bottom:30px;left:-60px;color:var(--bronze);opacity:.06" viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow"><svg viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>Contact</span>
+      <h2>Get in touch</h2>
+      <p class="contact-lead">Thanks for taking a look. I'm based in Northampton and happy to travel for the right project.</p>
+      <a class="btn btn-primary" href="assets/cv/James-Perry-CV.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download my CV
+      </a>
+    </div>
+    <div class="contact-card reveal">
+      <a class="row" href="tel:07907085014">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="ct"><small>Phone</small><span>07907 085014</span></span>
+      </a>
+      <a class="row" href="mailto:jtp1998@icloud.com">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+        <span class="ct"><small>Email</small><span>jtp1998@icloud.com</span></span>
+      </a>
+      <a class="row" href="https://www.linkedin.com/in/james-perry-65aa37201/" target="_blank" rel="noopener">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+        <span class="ct"><small>LinkedIn</small><span>/in/james-perry</span></span>
+      </a>
+      <a class="row" href="#top">
+        <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span class="ct"><small>Location</small><span>Northampton</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <svg class="hexbg" style="width:220px;top:-60px;left:8%;color:var(--bronze);opacity:.08" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <svg class="hexbg" style="width:150px;bottom:-50px;right:12%;color:var(--cream);opacity:.05" viewBox="0 0 100 100" fill="currentColor"><polygon points="50,4 91,27 91,73 50,96 9,73 9,27"/></svg>
+  <div class="wrap foot-inner">
+    <a href="#top" class="foot-brand">
+      <img src="assets/img/logo-mark.png" alt="James Perry Project Management logo">
+      <div><b>James Perry</b><span>Project Management</span></div>
+    </a>
+    <div class="foot-copy">© <span id="yr"></span> James Perry · Project Management</div>
+  </div>
+</footer>
+
+<script>
+// year
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// header shadow on scroll
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10));
+
+// mobile menu
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// carousel (runs independently for each)
+function initCarousel(root){
+  const track=root.querySelector('.track');
+  const slides=Array.from(track.children);
+  const dotsWrap=root.querySelector('.dots');
+  const cap=root.querySelector('.ccap');
+  const count=root.querySelector('.ccount');
+  let i=0;
+  slides.forEach((s,idx)=>{
+    const d=document.createElement('button');
+    d.className='dot'; d.setAttribute('aria-label','Go to image '+(idx+1));
+    d.addEventListener('click',()=>go(idx));
+    dotsWrap.appendChild(d);
+  });
+  const dots=Array.from(dotsWrap.children);
+  function go(n){
+    i=(n+slides.length)%slides.length;
+    track.style.transform='translateX('+(-i*100)+'%)';
+    dots.forEach((d,x)=>d.classList.toggle('active',x===i));
+    if(cap) cap.innerHTML=slides[i].dataset.cap||'';
+    if(count) count.textContent=(i+1)+' / '+slides.length;
+  }
+  root.querySelector('.prev').addEventListener('click',()=>go(i-1));
+  root.querySelector('.next').addEventListener('click',()=>go(i+1));
+  // swipe / drag
+  let x0=null;
+  track.addEventListener('pointerdown',e=>{x0=e.clientX;});
+  track.addEventListener('pointerup',e=>{
+    if(x0===null) return;
+    const dx=e.clientX-x0;
+    if(dx>45) go(i-1); else if(dx<-45) go(i+1);
+    x0=null;
+  });
+  go(0);
+}
+document.querySelectorAll('.carousel').forEach(initCarousel);
+</script>
+</body>
+</html>
